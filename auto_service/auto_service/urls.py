@@ -15,15 +15,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
-
+from auto_service import views
+from auto_service.views import LoginUser, LogoutUser
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='home'),
-    path('api/userlist', UserViewSet.as_view({'get': 'list'})),
-    path('api/userlist/<int:pk>', UserViewSet.as_view({'put': 'update'})),
-    path('api/drfauth/', include('rest_framework.urls')),
-
-    path('api/auth/', include('djoser.urls')),
-    re_path(r'^auth/', include('djoser.urls.authtoken')),
+    path('users/', include('users.urls')),
+    path('login/', LoginUser.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', LogoutUser.as_view(template_name='users/logout.html'), name='logout'),
+    # path('api/userlist', UserViewSet.as_view({'get': 'list'})),
+    # path('api/userlist/<int:pk>', UserViewSet.as_view({'put': 'update'})),
+    # path('api/drfauth/', include('rest_framework.urls')),
+    #
+    # path('api/auth/', include('djoser.urls')),
+    # re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]

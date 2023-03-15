@@ -5,4 +5,4 @@ from advertisement.models import Advertisement
 
 class AdvertisementView(ListView):
     model = Advertisement
-    template_name = 'advertisement/indextest.html'
+    template_name = 'advertisement/index.html'

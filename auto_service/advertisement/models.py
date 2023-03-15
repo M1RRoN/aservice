@@ -4,7 +4,7 @@ from django.db.models import PROTECT
 from users.models import CustomUser
 
 
-class Application(models.Model):
+class Advertisement(models.Model):
     name = models.CharField(max_length=100)
     text = models.TextField()
     image = models.ImageField()

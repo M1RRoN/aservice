@@ -24,6 +24,7 @@ urlpatterns = [
     path('users/', include('users.urls')),
     path('login/', LoginUser.as_view(template_name='users/login.html'), name='login'),
     path('logout/', LogoutUser.as_view(template_name='users/logout.html'), name='logout'),
+    path('advertisement/', include('advertisement.urls')),
     # path('api/userlist', UserViewSet.as_view({'get': 'list'})),
     # path('api/userlist/<int:pk>', UserViewSet.as_view({'put': 'update'})),
     # path('api/drfauth/', include('rest_framework.urls')),

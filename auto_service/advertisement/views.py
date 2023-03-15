@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import ListView
 
-# Create your views here.
+from advertisement.models import Advertisement
+
+
+class AdvertisementView(ListView):
+    model = Advertisement
